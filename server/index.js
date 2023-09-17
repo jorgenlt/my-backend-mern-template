@@ -30,7 +30,7 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 6001;
 mongoose
   // Local connection
-  .connect("mongodb://localhost:27017/mern-template", {
+  .connect("mongodb://localhost:27017/my-backend-mern-template", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

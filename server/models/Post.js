@@ -13,8 +13,11 @@ const postSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    content: String,
-    // Picture path: optional field, can be a string
+    // Content: required field, must be a string
+    content: {
+      type: String,
+      required: true,
+    },
   },
   // Automatically include createdAt and updatedAt fields
   { timestamps: true }
