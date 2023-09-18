@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(morgan("common"));
 
 // Defining routes
-app.use("/", postRoutes);
+app.use("/posts", postRoutes);
 
 // Default Route Handler
 app.use((req, res, next) => {
@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {
-  console.error(err.stack);
+  if (err.stack) console.error(err.stack);
   res.status(err.status || 500).send('Something broke!');
 });
 
@@ -33,6 +33,7 @@ mongoose
   .connect("mongodb://localhost:27017/my-backend-mern-template", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useCreateIndex: true,
   })
   // MongoDB Atlas
   // .connect(process.env.MONGO_URL, {

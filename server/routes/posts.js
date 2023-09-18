@@ -1,3 +1,12 @@
+import express from 'express'
+import {
+  getPosts,
+  createPost,
+  getPost,
+  deletePost,
+  updatePost
+} from '../controllers/posts.js'
+
 // Creating a new router object from the express module
 const router = express.Router();
 

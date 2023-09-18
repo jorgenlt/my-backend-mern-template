@@ -21,14 +21,11 @@ export const createPost = async (req, res) => {
     // Saving the new post
     const savedPost = await newPost.save();
 
-    // Fetching all posts
-    const posts = await Post.find();
-
     // Response with 201-Created and the created post
     return res.status(201).json(savedPost);
   } catch (err) {
     // Log the error
-    console.error(err.message);
+    console.error(err);
 
     // Send a generic error message to the client
     return res.status(500).json({ message: "An error occurred" });
@@ -45,7 +42,7 @@ export const getPosts = async (req, res) => {
     return res.status(200).json(posts);
   } catch (err) {
     // Log the error
-    console.error(err.message);
+    console.error(err);
 
     // Send a generic error message to the client
     return res.status(500).json({ message: "An error occurred" });
@@ -67,7 +64,7 @@ export const getPost = async (req, res) => {
     return res.status(200).json(post);
   } catch (err) {
     // Log the error
-    console.error(err.message);
+    console.error(err);
 
     // Send a generic error message to the client
     return res.status(500).json({ message: "An error occurred" });
@@ -92,7 +89,7 @@ export const deletePost = async (req, res) => {
     console.error(err);
 
     // Send a generic error message to the client
-    return res.status(500).json({ message: err.message });
+    return res.status(500).json({ message: "An error occurred" });
   }
 };
 
@@ -130,6 +127,6 @@ export const updatePost = async (req, res) => {
     console.error(err);
 
     // Send a generic error message to the client
-    return res.status(500).json({ message: err.message });
+    return res.status(500).json({ message: "An error occurred" });
   }
 };
