@@ -33,7 +33,6 @@ mongoose
   .connect("mongodb://localhost:27017/my-backend-mern-template", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true,
   })
   // MongoDB Atlas
   // .connect(process.env.MONGO_URL, {
